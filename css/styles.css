@@ -4196,3 +4196,14 @@ img.u-pull-left {
     font-size: 1.05rem;
     line-height: 1.7;
 }
+
+/* 校内活动链接样式 */
+.campus-activity-link {
+    text-decoration: underline !important;
+    transition: color 0.3s ease;
+}
+
+.campus-activity-link:hover {
+    color: var(--color-1) !important;
+    text-decoration: underline !important;
+}
