@@ -119,7 +119,8 @@
         if (!hdr) return;
 
         // const triggerHeight = window.pageYOffset + hdr.getBoundingClientRect().top;
-        const triggerHeight = 1;
+        // 调整触发位置以匹配67%缩放
+        const triggerHeight = 1 * 0.67;
 
         window.addEventListener('scroll', function () {
 
@@ -244,8 +245,10 @@
             blocks.forEach(function(current) {
 
                 const viewportHeight = window.innerHeight;
-                const triggerTop = (current.offsetTop + (viewportHeight * .1)) - viewportHeight;
-                const blockHeight = current.offsetHeight;
+                // 调整触发位置以匹配67%缩放
+                const scaleFactor = 0.67;
+                const triggerTop = ((current.offsetTop * scaleFactor) + (viewportHeight * .1 * scaleFactor)) - (viewportHeight * scaleFactor);
+                const blockHeight = current.offsetHeight * scaleFactor;
                 const blockSpace = triggerTop + blockHeight;
                 const inView = scrollY > triggerTop && scrollY <= blockSpace;
                 const isAnimated = current.classList.contains('ss-animated');
@@ -325,7 +328,8 @@
     * ------------------------------------------------------ */
     const ssBackToTop = function() {
 
-        const pxShow = 900;
+        // 调整触发位置以匹配67%缩放
+        const pxShow = 900 * 0.67;
         const goTopButton = document.querySelector(".ss-go-top");
 
         if (!goTopButton) return;
